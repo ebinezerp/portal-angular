@@ -14,4 +14,9 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
   }
 
+  registrationTab=true;
+
+  onTab(value):void{
+    this.registrationTab=value;
+  }
 }
