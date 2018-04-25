@@ -1,0 +1,134 @@
+<div>
+  <h1 align="center">Registere Here</h1>
+</div>
+<br>
+<br>
+<div class="form"  >
+<form #regform="ngForm" (ngSubmit)="regform.valid && register()">
+  <div class="form-group">
+    <input type="text" name="employee_Id" id="employee_Id" [(ngModel)]="employee.employee_Id" class="form-control col-sm-12"
+      placeholder="EMPLOYEE ID" aria-describedby="helpId" #employeeId="ngModel" required pattern="[0-9]{1,7}">
+    <small id="helpId" class="text-muted">Help text</small>
+  </div>
+
+  <div *ngIf="employeeId.invalid  && (employeeId.dirty || employeeId.touched)" class="alert alert-danger">
+
+    <div *ngIf="employeeId.errors.required">
+     <span style="color:red">Enter Employee Id</span>
+    </div>
+    <div *ngIf="employeeId.errors.pattern">
+       <span> Enter valid Employee Id</span>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <input type="text" name="email" id="email" [(ngModel)]="employee.email" class="form-control col-sm-12" placeholder="EMAIL"
+      aria-describedby="helpId" required pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" #email="ngModel">
+    <small id="helpId" class="text-muted">Help text</small>
+  </div>
+
+  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+    <div *ngIf="email.errors.required">
+     <span style="color:red">Enter Email</span>
+    </div>
+    <div *ngIf="email.errors.pattern">
+       <span> Enter valid Email Address</span>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <input type="text" name="mobile" id="mobile" [(ngModel)]="employee.mobile" class="form-control col-sm-12" placeholder="MOBILE"
+      aria-describedby="helpId" required pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" #mobile="ngModel">
+    <small id="helpId" class="text-muted">Help text</small>
+  </div>
+
+
+  <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="alert alert-danger">
+
+    <div *ngIf="mobile.errors.required">
+     <span style="color:red">Enter Mobile Number</span>
+    </div>
+    <div *ngIf="mobile.errors.pattern">
+       <span> Enter valid Mobile Number. Ex:+919234516780</span>
+    </div>
+
+  </div>
+
+
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="role" [(ngModel)]="employee.role" id="employee" [value]="employee" checked> Employee
+    </label>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="role" [(ngModel)]="employee.role" id="employeer" [value]="employeer" checked> Employeer
+    </label>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="role" [(ngModel)]="employee.role" id="hr" [value]="HR" checked> HR
+    </label>
+  </div>
+
+  <div class="form-group">
+    <input type="text" name="designation" id="designation" [(ngModel)]="employee.designation" class="form-control col-sm-12"
+      placeholder="DESIGNATION" aria-describedby="helpId" required pattern="[A-Za-z\s]{4,40}" #designation="ngModel">
+    <small id="helpId" class="text-muted">Help text</small>
+  </div>
+
+  <div *ngIf="designation.invalid && (designation.dirty || designation.touched)" class="alert alert-danger">
+
+    <div *ngIf="designation.errors.required">
+     <span style="color:red">Enter designation
+     </span>
+    </div>
+    <div *ngIf="designation.errors.pattern">
+       <span>Only Alphabet. Min 4 and Max 40 Characters</span>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <input type="text" name="username" id="username" [(ngModel)]="employee.username" class="form-control col-sm-12" placeholder="USERNAME"
+      aria-describedby="helpId" required pattern="[A-Za-z0-9]{5,15}" #username="ngModel">
+    <small id="helpId" class="text-muted">Help text</small>
+  </div>
+
+  <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+
+    <div *ngIf="username.errors.required">
+     <span style="color:red">Enter username
+     </span>
+    </div>
+    <div *ngIf="username.errors.pattern">
+       <span>Only Alphanumric. Min 5 and Max 15 Characters</span>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <input type="password" name="password" id="password" [(ngModel)]="employee.password" class="form-control col-sm-12" placeholder="PASSWORD"
+      aria-describedby="helpId" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" #password="ngModel">
+    <small id="helpId" class="text-muted">Help text</small>
+  </div>
+
+
+  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+
+    <div *ngIf="password.errors.required">
+     <span style="color:red">Enter password
+     </span>
+    </div>
+    <div *ngIf="password.errors.pattern">
+       <span>Min 6. and Max 20 Characters. Atleast One Capital, One small, One Digit and One Special Character</span>
+    </div>
+
+  </div>
+
+  <button type="submit" text-align="center" class="btn btn-dark col-sm-12">
+    <h3>Register</h3>
+  </button>
+</form>
+</div>
