@@ -17,15 +17,24 @@
      <span style="color:red">Enter Employee Id</span>
     </div>
     <div *ngIf="employeeId.errors.pattern">
-       <span> Enter valid Employee Id</span>
+       <input [regform.valid]=true/>
     </div>
 
   </div>
 
   <div class="form-group">
     <input type="text" name="email" id="email" [(ngModel)]="employee.email" class="form-control col-sm-12" placeholder="EMAIL"
-      aria-describedby="helpId" required pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" #email="ngModel">
-    <small id="helpId" class="text-muted">Help text</small>
+      aria-describedby="helpId" required pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" #email="ngModel" (blur)="findEmployeeByEmail()">
+    <span *ngIf="emailExistsMessage">
+      <div class="alert alert-dander" role="alert">
+        [regform.valid]=false;
+        <strong>Email is already Existed</strong>
+      </div>
+
+    </span>
+    <span *ngIf="!emailExistsMessage">
+        {{regform.valid=true}}
+    </span>
   </div>
 
   <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
@@ -113,6 +122,8 @@
       aria-describedby="helpId" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" #password="ngModel">
     <small id="helpId" class="text-muted">Help text</small>
   </div>
+
+  <input type="text" name="status" [(ngModel)]="employee.status" [value]="pending" hidden/>
 
 
   <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">

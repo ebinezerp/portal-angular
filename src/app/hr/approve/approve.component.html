@@ -1,0 +1,128 @@
+<div>
+    <table class="table table-response">
+        <tr>
+          <td>Employee Id</td>
+          <td>{{employee.employee_Id}}</td>
+        </tr>
+        <tr>
+          <td>First Name</td>
+          <td>
+            <span *ngIf="employee.firstname">{{employee.firstname}}</span>
+            <span *ngIf="!employee.firstname">Not Filled</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>
+            <span *ngIf="employee.lastname">{{employee.lastname}}</span>
+            <span *ngIf="!employee.lastname">Not Filled</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>
+            <span *ngIf="employee.email">{{employee.email}}</span>
+            <span *ngIf="!employee.email">Not Filled</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Mobile</td>
+          <td>
+            <span *ngIf="employee.mobile">{{employee.mobile}}</span>
+            <span *ngIf="!employee.mobile">Not Filled</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Role</td>
+          <td>
+            <span *ngIf="employee.role">{{employee.role}}</span>
+            <span *ngIf="!employee.role">Not Filled</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Designation</td>
+          <td>
+            <span *ngIf="employee.designation">{{employee.designation}}</span>
+            <span *ngIf="!employee.designation">Not Filled</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <h2>Personal Information</h2>
+          </td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>
+            <span *ngIf="employee.gender">{{employee.gender}}</span>
+            <span *ngIf="!employee.gender">Not Filled</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Marital Status</td>
+          <td>
+            <span *ngIf="employee.marital_Status">
+              <span *ngIf="employee.marital_Status==false">Single</span>
+              <span *ngIf="employee.marital_Status==true">Married</span>
+            </span>
+            <span *ngIf="!employee.marital_Status">Not Filled</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Date Of Birth</td>
+          <td>
+            <span *ngIf="employee.date_Of_Birth">{{employee.date_Of_Birth}}</span>
+            <span *ngIf="!employee.date_Of_Birth">Not Filled</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Profile Status</td>
+          <td>
+            <span *ngIf="employee.status">{{employee.status}}
+              <span *ngIf="employee.status=='rejected'">
+                <p>{{employee.remarks}}</p>
+              </span>
+
+            </span>
+            <span *ngIf="!employee.status">Not Filled</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <h3>Professional Data</h3>
+          </td>
+
+        </tr>
+        <tr>
+          <td>No Of Batchs Taught</td>
+          <td>
+            <span *ngIf="employee.no_Of_Batches_Taught">{{employee.no_Of_Batchs_Taught}}</span>
+            <span *ngIf="!employee.no_Of_Batches_Taught">Not Filled</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td>No Of Students Placed</td>
+          <td>
+            <span *ngIf="employee.no_Of_Students_Placed">{{employee.no_Of_Students_Placed}}</span>
+            <span *ngIf="!employee.no_Of_Students_Placed">Not Filled</span>
+          </td>
+        </tr>
+
+        <tr>
+            <td>No Of Students Placed</td>
+            <td>
+              <span *ngIf="employee.no_Of_Students_Placed">{{employee.no_Of_Students_Placed}}</span>
+              <span *ngIf="!employee.no_Of_Students_Placed">Not Filled</span>
+            </td>
+          </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <button type="button" class="btn btn-primary" (click)="statusUpdate('approved')">Approve</button>
+            <button type="button" class="btn btn-primary" (click)="statusUpdate('approved')">Reject</button>
+            </td>
+            </tr>
+        <tr><td><button (click)="goBack()">Back</button></td></tr>
+      </table>
+</div>

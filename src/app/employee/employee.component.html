@@ -1,1 +1,476 @@
-This is employee Component
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="col-lg-6 col-sm-6 offset-sm-3 offset-lg-3">
+  <div class="card hovercard">
+    <div class="card-background">
+      <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
+      <!-- http://lorempixel.com/850/280/people/9/ -->
+    </div>
+    <div class="useravatar">
+      <img alt="" src="http://lorempixel.com/100/100/people/9/">
+    </div>
+    <div class="card-info">
+      <span class="card-title">{{employee.username}}</span>
+
+    </div>
+  </div>
+  <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+    <div class="btn-group" role="group">
+      <button type="button" id="stars" class="btn btn-primary" (click)="tabs(1)">
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+        <div class="hidden-xs">Profile</div>
+      </button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" id="favorites" class="btn btn-default" (click)="tabs(2)">
+        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+        <div class="hidden-xs">Skills</div>
+      </button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" id="following" class="btn btn-default" (click)="tabs(3)">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        <div class="hidden-xs">Certifications</div>
+      </button>
+    </div>
+  </div>
+
+  <div class="well">
+    <div class="tab-content">
+        <!-------------------------------------------------  This is Profile Section  ----------------------------         -->
+      <div class="" id="tab1" *ngIf='tab===1'>
+        <div class="displaypro" id="displaypro" *ngIf="displayProfile">
+          <table class="table table-response">
+            <tr>
+              <td>Employee Id</td>
+              <td>{{employee.employee_Id}}</td>
+            </tr>
+            <tr>
+              <td>First Name</td>
+              <td>
+                <span *ngIf="employee.firstname">{{employee.firstname}}</span>
+                <span *ngIf="!employee.firstname">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td>
+                <span *ngIf="employee.lastname">{{employee.lastname}}</span>
+                <span *ngIf="!employee.lastname">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>
+                <span *ngIf="employee.email">{{employee.email}}</span>
+                <span *ngIf="!employee.email">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Mobile</td>
+              <td>
+                <span *ngIf="employee.mobile">{{employee.mobile}}</span>
+                <span *ngIf="!employee.mobile">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Role</td>
+              <td>
+                <span *ngIf="employee.role">{{employee.role}}</span>
+                <span *ngIf="!employee.role">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Designation</td>
+              <td>
+                <span *ngIf="employee.designation">{{employee.designation}}</span>
+                <span *ngIf="!employee.designation">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <h2>Personal Information</h2>
+              </td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>
+                <span *ngIf="employee.gender">{{employee.gender}}</span>
+                <span *ngIf="!employee.gender">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Marital Status</td>
+              <td>
+                <span *ngIf="employee.marital_Status">
+                  <span *ngIf="employee.marital_Status=='false'">Single</span>
+                  <span *ngIf="employee.marital_Status=='true'">Married</span>
+                </span>
+                <span *ngIf="!employee.marital_Status">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Date Of Birth</td>
+              <td>
+                <span *ngIf="employee.date_Of_Birth">{{employee.date_Of_Birth}}</span>
+                <span *ngIf="!employee.date_Of_Birth">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td>Profile Status</td>
+              <td>
+                <span *ngIf="employee.status">{{employee.status}}
+                  <span *ngIf="employee.status=='rejected'">
+                    <p>{{employee.remarks}}</p>
+                  </span>
+
+                </span>
+                <span *ngIf="!employee.status">Not Filled</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <h3>Professional Data</h3>
+              </td>
+
+            </tr>
+            <tr>
+              <td>No Of Batchs Taught</td>
+              <td>
+                <span *ngIf="employee.no_Of_Batches_Taught">{{employee.no_Of_Batches_Taught}}</span>
+                <span *ngIf="!employee.status">Not Filled</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>No Of Students Placed</td>
+              <td>
+                <span *ngIf="employee.no_Of_Students_Placed">{{employee.no_Of_Students_Placed}}</span>
+                <span *ngIf="!employee.no_Of_Students_Placed">Not Filled</span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <button type="button" class="btn btn-primary" (click)="editProfile(false)">Edit</button>
+
+          </table>
+        </div>
+
+
+
+
+<!----------------------------------- This is Edit Division --------------------------------       -->
+
+
+        <div class="editpro" *ngIf="!displayProfile">
+            <form>
+          <table class="table table-response">
+            <tr>
+              <td>Employee Id</td>
+              <td>
+                <input type="text" name="employee_Id" [(ngModel)]="employee.employee_Id" readonly>
+              </td>
+            </tr>
+            <tr>
+              <td>First Name</td>
+              <td>
+                    <div class="form-group">
+                            <input type="text" name="firstname" id="firstname" [(ngModel)]="employee.firstname" class="form-control col-sm-12" placeholder="First Name"
+                              aria-describedby="helpId" required pattern="[a-zA-Z]{4,15}" #firstname="ngModel">
+                            <small id="helpId" class="text-muted">Help text</small>
+                          </div>
+                        
+                          <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+                        
+                            <div *ngIf="firstname.errors.required">
+                             <span style="color:red">Enter Firstname</span>
+                            </div>
+                            <div *ngIf="firstname.errors.pattern">
+                               <span>Alphabet Only. Min 4 and Max 15 characters </span>
+                            </div>
+                        
+                          </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td>
+                <div class="form-group">
+                  <input type="text" name="lastname" id="lastname" [(ngModel)]="employee.lastname" class="form-control col-sm-12" placeholder="Last Name"
+                    aria-describedby="helpId" required pattern="[A-Za-z]{5,15}" #lastname="ngModel">
+                  <small id="helpId" class="text-muted">Help text</small>
+                </div>
+                  
+                <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+                        
+                        <div *ngIf="lastname.errors.required">
+                         <span style="color:red">Enter Lastname</span>
+                        </div>
+                        <div *ngIf="lastname.errors.pattern">
+                           <span>Alphabet Only. Min 4 and Max 15 characters </span>
+                        </div>
+                    
+                      </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>
+                <div class="form-group">
+                  <input type="text" name="email" id="email" [(ngModel)]="employee.email" class="form-control col-sm-12" placeholder="EMAIL"
+                    aria-describedby="helpId" required pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" #email="ngModel">
+                  <small id="helpId" class="text-muted">Help text</small>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Mobile</td>
+              <td>
+                <div class="form-group">
+                  <input type="text" name="mobile" id="mobile" [(ngModel)]="employee.mobile" class="form-control col-sm-12" placeholder="MOBILE"
+                    aria-describedby="helpId" required pattern="^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$" #mobile="ngModel">
+                  <small id="helpId" class="text-muted">Help text</small>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Role</td>
+              <td>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="role" [(ngModel)]="employee.role" id="employee" value="emp" checked> Employee
+                  </label>
+                  &nbsp; &nbsp; &nbsp; &nbsp;
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="role" [(ngModel)]="employee.role" id="employeer" value="employeer" checked> Employeer
+                  </label>
+                  &nbsp; &nbsp; &nbsp; &nbsp;
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="role" [(ngModel)]="employee.role" id="hr" value="HR" checked> HR
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Designation</td>
+              <td>
+                <div class="form-group">
+                  <input type="text" name="designation" id="designation" [(ngModel)]="employee.designation" class="form-control col-sm-12"
+                    placeholder="DESIGNATION" aria-describedby="helpId" required pattern="[A-Za-z\s]{4,40}" #designation="ngModel">
+                  <small id="helpId" class="text-muted">Help text</small>
+                </div>
+                <div *ngIf="designation.invalid && (designation.dirty || designation.touched)" class="alert alert-danger">
+
+                  <div *ngIf="designation.errors.required">
+                    <span style="color:red">Enter designation
+                    </span>
+                  </div>
+                  <div *ngIf="designation.errors.pattern">
+                    <span>Only Alphabet. Min 4 and Max 40 Characters</span>
+                  </div>
+
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Username</td>
+              <td>
+
+                <div class="form-group">
+                  <input type="text" name="username" id="username" [(ngModel)]="employee.username" class="form-control col-sm-12" placeholder="USERNAME"
+                    aria-describedby="helpId" required pattern="[A-Za-z0-9]{5,15}" #username="ngModel">
+                  <small id="helpId" class="text-muted">Help text</small>
+                </div>
+
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+
+                  <div *ngIf="username.errors.required">
+                    <span style="color:red">Enter username
+                    </span>
+                  </div>
+                  <div *ngIf="username.errors.pattern">
+                    <span>Only Alphanumric. Min 5 and Max 15 Characters</span>
+                  </div>
+
+                </div>
+
+              </td>
+
+            </tr>
+            <tr>
+              <td colspan="2">
+                <h2>Personal Information</h2>
+              </td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td>
+                    <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="gender" [(ngModel)]="employee.gender" id="male" value="male"> Male
+                            </label>
+                            &nbsp; &nbsp; &nbsp; &nbsp;
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="gender" [(ngModel)]="employee.gender" id="female" value="female" > Female
+                            </label>
+                    </div>
+                    
+                            
+              </td>
+            </tr>
+            <tr>
+              <td>Marital Status</td>
+              <td>
+                    <div class="form-check">
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="martial_Status" [(ngModel)]="employee.marital_Status" id="yes" value=true> Married
+                            </label>
+                            &nbsp; &nbsp; &nbsp; &nbsp;
+                            <label class="form-check-label">
+                              <input type="radio" class="form-check-input" name="martial_Status" [(ngModel)]="employee.marital_Status" id="no" value=false > Single
+                            </label>
+                    </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Date Of Birth</td>
+              <td>
+                    <div class="form-group">
+                            <input type="date" name="date" id="date_Of_Birth" [(ngModel)]="employee.date_Of_Birth" class="form-control col-sm-12"
+                              aria-describedby="helpId" required  #date="ngModel">
+                            <small id="helpId" class="text-muted">Help text</small>
+                    </div>
+
+                    <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+
+                            <div *ngIf="date.errors.required">
+                              <span style="color:red">Enter Date of Birth
+                              </span>
+                            </div>
+                            >
+          
+                    </div>
+              </td>
+            </tr>
+            <tr>
+              <td>Profile Status</td>
+              <td>
+                <span *ngIf="employee.status">{{employee.status}}
+                  <span *ngIf="employee.status=='rejected'">
+                    <p>{{employee.remarks}}</p>
+                  </span>
+
+                </span>
+                <span *ngIf="!employee.status">Not Filled</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <h3>Professional Data</h3>
+              </td>
+
+            </tr>
+            <tr>
+              <td>No Of Batchs Taught</td>
+              <td>
+                    <div class="form-group">
+                            <input type="text" name="no_Of_Batches_Taught" id="no_Of_Batches_Taught" [(ngModel)]="employee.no_Of_Batches_Taught" class="form-control col-sm-12" placeholder="No OF Batches"
+                              aria-describedby="helpId" required pattern="[0-9]{1,}" #batch="ngModel">
+                            <small id="helpId" class="text-muted">Help text</small>
+                          </div>
+          
+                          <div *ngIf="batch.invalid && (batch.dirty || batch.touched)" class="alert alert-danger">
+          
+                            <div *ngIf="batch.errors.required">
+                              <span style="color:red">Enter No of Batches Taught field
+                              </span>
+                            </div>
+                            <div *ngIf="batch.errors.pattern">
+                              <span>Only Numeric. Atleast one digit</span>
+                            </div>
+          
+                          </div>
+          
+              </td>
+            </tr>
+
+            <tr>
+              <td>No Of Students Placed</td>
+              <td>
+                    <div class="form-group">
+                            <input type="text" name="no_Of_Students_Placed" id="no_Of_Students_Placed" [(ngModel)]="employee.no_Of_Students_Placed" class="form-control col-sm-12" placeholder="No OF Students"
+                              aria-describedby="helpId" required pattern="[0-9]{1,}" #students="ngModel">
+                            <small id="helpId" class="text-muted">Help text</small>
+                          </div>
+          
+                          <div *ngIf="students.invalid && (students.dirty || students.touched)" class="alert alert-danger">
+          
+                            <div *ngIf="students.errors.required">
+                              <span style="color:red">Enter No of Students Placed field
+                              </span>
+                            </div>
+                            <div *ngIf="students.errors.pattern">
+                              <span>Only Numeric. Atleast one digit</span>
+                            </div>
+          
+                          </div>
+              </td>
+            </tr>
+            <tr>
+              <td align="center">
+                <button type="button" class="btn btn-primary" (click)="editProfile(true)">Cancel</button>
+</td>
+<td>                <button type="button" class="btn btn-primary" (click)="update()">Update</button></td>
+</tr>
+          </table>
+          </form>
+        </div>
+      </div>
+
+<!---------- This is end of the profile Section ------------------------------------------------------ -->  
+
+
+<!-- ------------------------------  This is Skill Section ------------------------------------------------------------------------- -->
+      <div class="" id="tab2" *ngIf='tab===2'>
+          <div *ngIf="employee.skills.length<=0">
+              <p>No Skils are Added</p>
+              <button class="btn btn-primary">Add Skills</button>
+            </div>
+         <div  *ngFor="let skill of employee.skills">
+            <table>
+                <tr>
+                    <td>Skill Name</td>
+                    <td>{{skill.skillName}}</td>
+                </tr>
+                <tr>
+                    <td>Version</td>
+                    <td>{{skill.version}}</td>
+                </tr>
+                <tr>
+                    <td>Months of practice</td>
+                    <td>{{skill.monthsOfPractice}}</td>
+                </tr>
+                <tr>
+                    <td>Months of Training</td>
+                    <td>{{skill.monthsOfTraining}}</td>
+                </tr>
+            </table>
+         </div>
+      </div>
+<!-- ------------------------------  This is end Skill Section ------------------------------------------------------------------------- -->
+      
+
+<!-- ------------------------------  This is Certification Section ------------------------------------------------------------------------- -->
+      <div class="" id="tab3" *ngIf='tab===3'>
+        <h3>This is tab 3</h3>
+      </div>
+<!-- ------------------------------  This is end of Certification Section ------------------------------------------------------------------------- -->
+    </div>
+  </div>
+
+</div>

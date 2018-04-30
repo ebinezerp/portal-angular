@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Employee } from '../register/employee';
+import { Employee } from '../model/employee';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -10,6 +10,8 @@ export const httpOptions = {
 
 @Injectable()
 export class LoginService {
+
+
 
   constructor(private http:HttpClient) { }
 

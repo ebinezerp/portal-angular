@@ -1,9 +1,13 @@
+import { Skill } from "./skill";
+import { Certification } from "./certification";
+
+
 export class Employee
 {
     employee_Id:number;
     email:string;
     mobile:string;
-    role:string[]=['Employee','Employeer','HR'];
+    role:string;
     designation:string;
     username:string;
     password:string;
@@ -19,9 +23,12 @@ export class Employee
     date_Of_Birth:Date;
     city:string;
     no_Of_Batches_Taguht:number;
-    no_Of_Students_Placed:number;
+    no_Of_Student_Placed:number;
     supervisor:number;
     
+
+    skills:Skill[];
+    certififications:Certification[];
 
 
 

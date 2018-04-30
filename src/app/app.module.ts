@@ -14,6 +14,12 @@ import { RegisterService } from './service/register.service';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './service/login.service';
 import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeService } from './service/employee.service';
+import { EmployeerComponent } from './employeer/employeer.component';
+import { EmployeerService } from './service/employeer.service';
+import { HrComponent } from './hr/hr.component';
+import { HrService } from './service/hr.service';
+import { ApproveComponent } from './hr/approve/approve.component';
 
 
 export const routes:Routes=[
@@ -25,7 +31,18 @@ children:[{
 }]},
 {
   path:'employee',component:EmployeeComponent
+},
+{
+  path:'employeer',component:EmployeerComponent
+},
+{
+  path:'hr',component:HrComponent
+},
+{
+  path:'hr/:id',component:ApproveComponent
 }
+
+
 
 ]
 
@@ -36,7 +53,10 @@ children:[{
     RegisterComponent,
     LandingComponent,
     LoginComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EmployeerComponent,
+    HrComponent,
+    ApproveComponent
     
   ],
   imports: [
@@ -47,7 +67,7 @@ children:[{
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [RegisterService,LoginService],
+  providers: [RegisterService,LoginService, EmployeeService,EmployeerService, HrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
